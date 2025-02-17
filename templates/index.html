@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="text-center mb-4">Resume Builder</h1>
+        
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <form id="resumeForm">
+                    <!-- Personal Information -->
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h3>Personal Information</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="fullName" class="form-label">Full Name</label>
+                                    <input type="text" class="form-control" id="fullName" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="phone" class="form-label">Phone</label>
+                                    <input type="tel" class="form-control" id="phone">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="location" class="form-label">Location</label>
+                                    <input type="text" class="form-control" id="location">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Education -->
+                    <div class="card mb-4">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h3>Education</h3>
+                            <button type="button" class="btn btn-primary" onclick="addEducation()">Add Education</button>
+                        </div>
+                        <div class="card-body" id="educationContainer">
+                            <!-- Education entries will be added here -->
+                        </div>
+                    </div>
+
+                    <!-- Work Experience -->
+                    <div class="card mb-4">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h3>Work Experience</h3>
+                            <button type="button" class="btn btn-primary" onclick="addExperience()">Add Experience</button>
+                        </div>
+                        <div class="card-body" id="experienceContainer">
+                            <!-- Experience entries will be added here -->
+                        </div>
+                    </div>
+
+                    <!-- Skills -->
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h3>Skills</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <label for="skills" class="form-label">Skills (comma-separated)</label>
+                                <input type="text" class="form-control" id="skills" placeholder="e.g., Python, JavaScript, Project Management">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center mb-4">
+                        <button type="submit" class="btn btn-success btn-lg">Generate Resume</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
